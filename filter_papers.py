@@ -11,13 +11,10 @@ if __name__ == "__main__":
     out_dir = "./filtered/"
     os.makedirs(out_dir, exist_ok=True)
     
-    out_filename = "drivable_robotic.csv"
-    keywords = ["drivable", "free", "space", "occupancy", "traversability", "ground", "reaction score", "elevation", "map"]
-    ban_keywords = ["latent", "subspace", "sub-space", "kernel", 
-    	"coding", "multiclass", "multi-class", "multi-label", 
-    	"saliency", "dual", "surface", "scale", "localization", 
-        "person", "action" ,"feature", "pedestrian", "inpainting", "lidar", "planning"]
-    only_conf = ["ICRA2020", "ICRA2019", "IROS2019"]
+    out_filename = "drivable_obstacle.csv"
+    keywords = ["obstacle"]
+    ban_keywords = []
+    only_conf = []
 
     confs = sorted([ntpath.basename(fn)[:-5] for fn in glob.glob(down_dir + "/*.json")])
     save_list = []

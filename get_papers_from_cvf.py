@@ -69,14 +69,16 @@ if __name__ == "__main__":
     titles_only_dir = "./down_titles_only/"
     os.makedirs(out_dir, exist_ok=True)
     conf_list = ["ICCV2019.py", "ICCV2017.py", "ICCV2015.py", "ICCV2013.py",
-                 "CVPR2020.py", "CVPR2019.py", "CVPR2018.py", "CVPR2017.py", "CVPR2016.py", "CVPR2015.py", "CVPR2014.py", "CVPR2013.py",
+                 "CVPR2021.py", "CVPR2020.py", "CVPR2019.py", "CVPR2018.py", "CVPR2017.py", "CVPR2016.py", "CVPR2015.py", "CVPR2014.py", "CVPR2013.py",
                  "ECCV2018.py",
-                 "WACV2020.py"]
+                 "WACV2021","WACV2020.py"]
     for conf in conf_list:
-        if not os.path.isfile(out_dir + "/" + conf[:-3] + ".json"):
+        f = conf.find(".")
+        name = conf[:f] if f > 0 else conf
+        if not os.path.isfile(out_dir + "/" + name + ".json"):
             bib_dict = parse_main_page("http://openaccess.thecvf.com/" + conf)
             bib_dict = parse_paper_page(bib_dict)
-            json.dump(bib_dict, open(out_dir + "/" + conf[:-3] + ".json", 'w'), sort_keys=True, indent=4)
+            json.dump(bib_dict, open(out_dir + "/" + name + ".json", 'w'), sort_keys=True, indent=4)
         
     conf_titles_list = sorted([ntpath.basename(fn) for fn in glob.glob(titles_only_dir + "/*.txt")])
     for conf in conf_titles_list:
