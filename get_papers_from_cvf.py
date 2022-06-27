@@ -69,9 +69,9 @@ if __name__ == "__main__":
     titles_only_dir = "./down_titles_only/"
     os.makedirs(out_dir, exist_ok=True)
     conf_list = ["ICCV2021.py", "ICCV2019.py", "ICCV2017.py", "ICCV2015.py", "ICCV2013.py",
-                 "CVPR2021.py", "CVPR2020.py", "CVPR2019.py", "CVPR2018.py", "CVPR2017.py", "CVPR2016.py", "CVPR2015.py", "CVPR2014.py", "CVPR2013.py",
+                 "CVPR2022.py", "CVPR2021.py", "CVPR2020.py", "CVPR2019.py", "CVPR2018.py", "CVPR2017.py", "CVPR2016.py", "CVPR2015.py", "CVPR2014.py", "CVPR2013.py",
                  "ECCV2018.py",
-                 "WACV2021","WACV2020.py"]
+                 "WACV2022", "WACV2021","WACV2020.py"]
     for conf in conf_list:
         f = conf.find(".")
         name = conf[:f] if f > 0 else conf
